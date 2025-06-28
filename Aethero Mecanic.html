@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop BlackWrench</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+    body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInText 1s forwards;
+    }
+    .icon-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideIn 1.5s forwards 0.5s;
+    }
+    .icon-box {
+      background-color: #333;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, background-color 0.3s;
+      cursor: pointer;
+    }
+    .icon-box:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
+    .icon-box span {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .page {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 0.4s ease-in-out forwards;
+    }
+    .back-btn {
+      margin-top: 20px;
+      background: #ffcc00;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInText {
+      to {
+        opacity: 1;
+      }
+    }
+      ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="homeTitle">Workshop <span style="color: #ffcc00;">BlackWrench</span></h1>
+  <div id="homePage" class="icon-container">
+    <div class="icon-box" onclick="showPage('anggota')">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="40" />
+      <span>List Anggota</span>
+    </div>
+    <div class="icon-box" onclick="showPage('announcement')">
+      <img src="https://cdn-icons-png.flaticon.com/512/1827/1827279.png" width="40" />
+      <span>Announcement</span>
+    </div>
+    <div class="icon-box" onclick="showPage('duty')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2821/2821127.png" width="40" />
+      <span>Duty</span>
+    </div>
+    <div class="icon-box" onclick="showPage('rules')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3138/3138820.png" width="40" />
+      <span>Rules</span>
+    </div>
+    <div class="icon-box" onclick="showPage('component')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2949/2949875.png" width="40" />
+      <span>Component</span>
+    </div>
+
+  <!-- Pages -->
+  <div id="anggota" class="page">
+    <h2>Struktur Mekanik</h2>
+    <table style="border-collapse: collapse; text-align: left; margin-top: 10px;">
+      <thead>
+        <tr><th style="padding: 8px 16px; border: 1px solid #555; background-color: #222;">Jabatan</th>
+            <th style="padding: 8px 16px; border: 1px solid #555; background-color: #222;">Nama</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">
+Chief Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">Vanzy_Centurar</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Deputy Chief Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Senior Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-<br>-</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Mekanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-<br>-</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Junior Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-<br>-</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Apprentice Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-<br>-</td></tr>
+        <tr><td style="padding: 8px 16px; border: 1px solid #555;">Freelance Mechanic</td><td style="padding: 8px 16px; border: 1px solid #555;">-<br>-</td></tr>
+      </tbody>
+    </table>
+    <div class="back-btn" onclick="showHome()">← Kembali</div>
+  </div>
+
+  <div id="announcement" class="page">
+    <h2>Announcement</h2>
+    <p style="text-align: left;">Mechanic adalah yang tugasnya adalah membetulkan kendaraan orang menggunakan sebuah komponent (component) dan kunci inggris (wrench).</p>
+    <p style="text-align: left;">Wrench ini bisa dibeli di toko elektronik yang tersebar di seluruh kota, sedangkan Component hanya bisa dibeli di pabrik khusus komponen yang terletak di desa Dillimore. Jadi konsepnya itu.</p>
+    <p style="text-align: left;">Setiap player punya caranya sendiri dalam kerja mekanik ini. Kalian harus improvisasi sendiri kalau kalian mau laku, karena sistem kerja ini merupakan sistem kerja yang siapa cepat dia dapat dan siapa murah dia dapat.</p>
+    <p style="text-align: left;">Jadi ketika kita memulai pekerjaan maka kita awali dengan senyuman, bukan penuh dengan rasa benci.</p>
+    <p style="text-align: left;">Dengan itu maka kita harus berbaik hati kepada pelanggan dan saya yang akan mendidik kalian sampai kalian mahir dalam memodif mobil maupun motor. Dan kalian harus patuh dan taat pada atasan kalian yang akan membimbing kalian.</p>
+    <p style="text-align: left;">Jangan keras kepala jika diberi tahu. Mungkin segitu saja yang bisa saya sampaikan, kurang lebihnya mohon maaf.</p>
+    <div class="back-btn" onclick="showHome()">← Kembali</div>
+  </div>
+
+  <div id="duty" class="page">
+    <p style="text-align: left;">Kehadiran diisi hanya 1 kali dalam sehari. Lebih dari itu tidak apa-apa, namun akan ada <strong>Secret Reward</strong> yang akan dihadiahkan bagi yang rajin.</p>
+    <p style="text-align: left;">Sebaliknya, jika tidak mengisi duty dalam sehari, kami akan memantau anggota yang berhalangan duty.</p>
+    <p style="text-align: left;">Minimal duty sehari hanya diperkenankan <strong>2 jam</strong>, jadi gunakan waktu itu dengan baik ya. <strong>Ingat!!</strong></p>
+    <p style="text-align: left;">Isi form kehadiran: <a href="https://forms.gle/yw6WeDtJc4mYvPwr8" target="_blank" style="color: #ffcc00; text-decoration: underline;">Klik di sini</a></p>
+    <div class="back-btn" onclick="showHome()">← Kembali</div>
+  </div>
+  </div>
+
+  <div id="rules" class="page">
+    <h2>Rules Mekanik</h2>
+    <ul>
+      <li>1. anggota selalu taat pada aturan</li>
+      <li>2. dilarang abuse barang di mekanik</li>
+      <li>3. selalu menjanga aib diri sendiri maupun workshop</li>
+      <li>4. menggunakan pakaian seragam bersih dan rapih</li>
+      <li>5. Bercanda di dc sewajarnya.</li>
+      <li>6. Respect & attitude selalu di jaga kepada semua orang.</li>
+      <li>7. tidak melakukan korupsi jika melanggar akan ada hukuman yang setimpal</li>
+      <li>8. Bekerja dengan jujur dan menjunjung tinggi atasan</li>
+      <li>9. dilarang melakukan tindakan kriminal ketika on duty</li>
+      <li>10. tidak menjelek jelekan sesama pekerja</li>
+      <li>11. tidak memandang rendah gaji dan pekerjaan</li>
+      <li>12. harus memiliki sim berkendara</li>
+      <li>13. minimal pendaftaran ic level 5</li>
+      <li>14. bekerja dengan gesit dan tepat waktu dalam bekerja</li>
+      <li>15. peraturan akan di ketatkan</li>
+      <li>16. penggunaan /me dan /do yang aktif</li>
+      <li>17. menggunakan anim anim selayaknya mekanik di dunia nyata</li>
+      <li>18. Wajib sopan terhadap pelanggan</li>
+    </ul>
+    <div class="back-btn" onclick="showHome()">← Kembali</div>
+  </div>
+
+  <div id="component" class="page" style="max-height: 400px; overflow-y: auto; text-align: left; padding: 0 10px; margin: 0 auto; scrollbar-width: thin; scrollbar-color: transparent transparent;">
+    <h2>Component List</h2>
+
+    <h3>SULTAN</h3>
+    <p style="text-align: left;">1026/1027 Side Skirt Type 1 (L)<br>1028/1029 Exhaust Type 1<br>1030/1031 Side Skirt Type 2 (R)<br>1032/1033 Roof Scoop type 1<br>1138/1139 Spoiler type 1<br>1140/1141 Rear Bumper type 2<br>1169/1170 Front Bumper type 1</p>
+
+    <h3>ELEGY</h3>
+    <p style="text-align: left;">1034/1037 Exhaust type 1<br>1035/1038 Roof Scoop Type 1<br>1036/1039 Side Skirt type 1 (L)<br>1040/1041 Side Skirt type 1 (R)<br>1146/1147 Spoiler type 2<br>1148/1149 Rear Bumper type 2<br>1171/1172 Front Bumper type 1</p>
+
+    <h3>FLASH</h3>
+    <p style="text-align: left;">1045/1046 Exhaust type 2<br>1047/1048 Side Skirt type 1 (L)<br>1049/1050 Spoiler type 1<br>1051/1052 Side Skirt type 1 (R)<br>1053/1054 Roof Scoop type 2<br>1150/1150 Rear Bumper type 1<br>1152/1153 Front Bumper type 2</p>
+
+    <h3>STRATUM</h3>
+    <p style="text-align: left;">1055/1061 Roof Scoop type 1<br>1056/1057 Side Skirt type 1 (L)<br>1058/1060 Spoiler type 1<br>1059/1064 Exhaust type 2<br>1062/1063 Side Skirt type 1 (R)<br>1154/1155 Rear Bumper type 1<br>1156/1157 Rear Bumper type 2</p>
+
+    <h3>JESTER</h3>
+    <p style="text-align: left;">1065/1066 Exhaust type 1<br>1067/1068 Roof Scoop type 1<br>1069/1070 Side Skirt type 1 (L)<br>1071/1072 Side Skirt type 1 (R)<br>1158/1162 Spoiler type 2<br>1159/1161 Rear Bumper type 1<br>1160/1173 Front bumper type 1</p>
+
+    <h3>URANUS</h3>
+    <p style="text-align: left;">1088/1091 Roof Scoop 1<br>1089/1092 Exhaust Type 1<br>1090/1093 Side Skirt type 1 (L)<br>1094/1095 Side Skirt type 1 (R)<br>1163/1164 Spoiler type 2<br>1165/1166 Front Bumper type 2<br>1167/1168 Front Bumper type 1</p>
+
+    <h3>SLAMVAN</h3>
+    <p style="text-align: left;">1109/1110 Rear Bullbars type 1<br>1111/1112 hood ornament 1<br>1113/1114 Exhaust type 1<br>1115/1116 Front Bullbars type 1<br>1116/1117 Front Bullbars type 2<br>1118/1119 Side Skirt type 1 (L)<br>1120/1121 Side Skirt type 1 (R)</p>
+
+    <h3>REMINGTON</h3>
+    <p style="text-align: left;">1100/1123/1125 Misc. Part 1<br>1101/1124 Side Skirt type 1 (R)<br>1106/1122 Side Skirt type 2 (L)<br>1126/1127 Exhaust type 1<br>1178/1180 Rear Bumper type 2<br>1179/1185 Front Bumper type 1</p>
+
+    <h3>SAVANA</h3>
+    <p style="text-align: left;">1129/1132 Exhaust type 1<br>1130/1131 Roof type 1<br>1133/1102 Side Skirt (L)<br>1186/1187 Rear Bumper type 2<br>1188/1189 Front Bumper type 2</p>
+
+    <h3>BROADWAY</h3>
+    <p style="text-align: left;">1042/1099 Side Skirt (L)<br>1043/1044 Exhaust type 2<br>1174/1175 Front Bumper type 1<br>1176/1177 Rear Bumper type 1</p>
+
+    <h3>BLADE</h3>
+    <p style="text-align: left;">1103/1128 Roof type 2<br>1104/1105 Exhaust type 1<br>1107/1108 Side Skirt (R)<br>1181/1183 Front Bumper type 2<br>1182/1184 Front Bumper type 1</p>
+
+    <h3>TORNADO</h3>
+    <p style="text-align: left;">1134/1137 Side Skirt (L)<br>1135/1136 Exhaust type 2<br>1190/1192 Rear Bumper type 1<br>1191/1193 Rear Bumper type 2</p>
+
+    <div class="back-btn" onclick="showHome()">← Kembali</div>
+  </div>
+</div>
+ 
+  <script>
+    function showPage(id) {
+      document.getElementById("homePage").style.display = 'none';
+      document.getElementById("homeTitle").style.display = 'none';
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      const target = document.getElementById(id);
+      if (target) target.style.display = 'block';
+    }
+    function showHome() {
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById("homePage").style.display = 'grid';
+      document.getElementById("homeTitle").style.display = 'block';
+    }
+  </script>
+  
+</body>
+</html>
